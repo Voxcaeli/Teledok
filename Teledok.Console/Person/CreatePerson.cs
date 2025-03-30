@@ -1,4 +1,4 @@
-﻿namespace Teledok.Persistence.DTO.PersonDTO.Commands;
+﻿namespace Teledok.Console.Person;
 
 /// <summary>
 /// Добавление персональных данных нового физического лица

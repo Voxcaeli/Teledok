@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 using Teledok.Domain;
 using Teledok.Persistence.DBContext;
 using Teledok.Persistence.DTO.PersonDTO.Commands;
@@ -27,7 +28,7 @@ public class RepositoryPerson(TeledokDBContext context)
             {
                 Id = person.Id,
                 FullName = Helper.GetFullName(person),
-                Birthday = person.Birthday.ToShortDateString()
+                Birthday = GetStringBirthday(person.Birthday)
             })
             .AsNoTracking()
             .ToListAsync();
@@ -48,7 +49,7 @@ public class RepositoryPerson(TeledokDBContext context)
             {
                 Id = person.Id,
                 FullName = Helper.GetFullName(person),
-                Birthday = person.Birthday.ToShortDateString()
+                Birthday = GetStringBirthday(person.Birthday)
             })
             .AsNoTracking()
             .Skip(countSkip)
@@ -74,7 +75,7 @@ public class RepositoryPerson(TeledokDBContext context)
                 Patronomic = person.Patronomic,
                 FullName = Helper.GetFullName(person),
                 ShortName = Helper.GetShortName(person),
-                Birthday = person.Birthday.ToShortDateString(),
+                Birthday = GetStringBirthday(person.Birthday),
                 Address = person.Address
             })
             .AsNoTracking()
@@ -96,7 +97,7 @@ public class RepositoryPerson(TeledokDBContext context)
             Name = person.Name,
             Surname = person.Surname,
             Patronomic = person.Patronomic ?? string.Empty,
-            Birthday = person.Birthday,
+            Birthday = GetDateOnlyBirthday(person.Birthday),
             Address = person.Address ?? string.Empty
         };
 
@@ -125,7 +126,7 @@ public class RepositoryPerson(TeledokDBContext context)
         }
 
         updatedPerson.Patronomic = person.Patronomic;
-        updatedPerson.Birthday = person.Birthday;
+        updatedPerson.Birthday = GetDateOnlyBirthday(person.Birthday);
         updatedPerson.Address = person.Address;
 
         await context.SaveChangesAsync();
@@ -156,5 +157,23 @@ public class RepositoryPerson(TeledokDBContext context)
             ?? throw new NotFoundException(nameof(Person), id);
 
         return person;
+    }
+
+    private static string GetStringBirthday(DateOnly? dateBirthday)
+    {
+        var birthday = dateBirthday == null ?
+                       string.Empty :
+                       dateBirthday!.GetValueOrDefault().ToShortDateString();
+        
+        return birthday;
+    }
+
+    private static DateOnly? GetDateOnlyBirthday(string? strBirthday)
+    {
+        DateOnly? birthday = strBirthday == string.Empty || strBirthday == null ?
+                             null :
+                             DateOnly.Parse(strBirthday!);
+
+        return birthday;
     }
 }

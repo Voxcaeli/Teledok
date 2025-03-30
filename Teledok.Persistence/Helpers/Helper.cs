@@ -48,7 +48,7 @@ namespace Teledok.Persistence.Helpers
         /// </summary>
         /// <param name="type">Тип клиента</param>
         /// <returns>Строковое выражения типа клиента</returns>
-        public static string GetClientType(ClientType type)
+        public static string GetClientTypeDescription(ClientType type)
         {
             switch (type)
             {
@@ -61,6 +61,12 @@ namespace Teledok.Persistence.Helpers
             }
         }
 
+        /// <summary>
+        /// Получение объекта персональных данных по его идентификатору
+        /// </summary>
+        /// <param name="context">Контекст базы данных</param>
+        /// <param name="id">Идентификатор объекта персональных данных</param>
+        /// <returns>Объект персональных данных</returns>
         public static async Task<Person?> GetPersonByIdAsync(TeledokDBContext context, int id)
         {
             var person = await context.People

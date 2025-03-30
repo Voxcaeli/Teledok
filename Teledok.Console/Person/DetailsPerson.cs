@@ -1,4 +1,4 @@
-﻿namespace Teledok.Persistence.DTO.PersonDTO.Queries;
+﻿namespace Teledok.Console.Person;
 
 /// <summary>
 /// Полное описание персональных данных 

@@ -1,4 +1,4 @@
-﻿namespace Teledok.Persistence.DTO.PersonDTO.Commands;
+﻿namespace Teledok.Console.Person;
 
 /// <summary>
 /// Обновление персональных данных физического лица
@@ -26,7 +26,7 @@ public class UpdatePerson
     public string? Patronomic { get; set; }
 
     /// <summary>
-    /// Дата рождения физического лица
+    /// Дата рождения физического лица (опционально)
     /// </summary>
     public string? Birthday { get; set; }
 

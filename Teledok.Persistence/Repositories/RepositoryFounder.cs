@@ -27,7 +27,7 @@ public class RepositoryFounder(TeledokDBContext context)
             {
                 Id = founder.Id,
                 Name = Helper.GetFullName(founder.Person),
-                Birthday = founder.Person.Birthday.ToShortDateString()
+                Birthday = founder.Person.Birthday.GetValueOrDefault().ToShortDateString()
             })
             .AsNoTracking()
             .ToListAsync();
@@ -48,7 +48,7 @@ public class RepositoryFounder(TeledokDBContext context)
             {
                 Id = founder.Id,
                 Name = Helper.GetFullName(founder.Person),
-                Birthday = founder.Person.Birthday.ToShortDateString()
+                Birthday = founder.Person.Birthday.GetValueOrDefault().ToShortDateString()
             })
             .AsNoTracking()
             .Skip(countSkip)
@@ -88,7 +88,7 @@ public class RepositoryFounder(TeledokDBContext context)
                 PersonId = founder.PersonId,
                 FullName = Helper.GetFullName(founder.Person),
                 ShortName = Helper.GetShortName(founder.Person),
-                Birthday = founder.Person.Birthday.ToShortDateString(),
+                Birthday = founder.Person.Birthday.GetValueOrDefault().ToShortDateString(),
                 Address = founder.Person.Address,
                 AddedDate = founder.AddedDate.ToShortDateString(),
                 UpdateDate = founder.UpdateDate.ToShortDateString(),

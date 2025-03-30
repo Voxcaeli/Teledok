@@ -27,7 +27,7 @@ public class RepositoryClient(TeledokDBContext context)
             {
                 Id = client.Id,
                 Name = client.Name,
-                Type = Helper.GetClientType(client.Type)
+                Type = Helper.GetClientTypeDescription(client.Type)
             })
             .AsNoTracking()
             .ToListAsync();
@@ -48,7 +48,7 @@ public class RepositoryClient(TeledokDBContext context)
             {
                 Id = client.Id,
                 Name = client.Name,
-                Type = Helper.GetClientType(client.Type)
+                Type = Helper.GetClientTypeDescription(client.Type)
             })
             .AsNoTracking()
             .Skip(countSkip)
@@ -90,7 +90,7 @@ public class RepositoryClient(TeledokDBContext context)
             {
                 Id = client.Id,
                 Name = client.Name,
-                Type = Helper.GetClientType(client.Type),
+                Type = Helper.GetClientTypeDescription(client.Type),
                 TIN = client.TIN,
                 AddedDate = client.AddedDate.ToShortDateString(),
                 UpdateDate = client.UpdateDate.ToShortDateString(),

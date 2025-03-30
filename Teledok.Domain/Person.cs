@@ -28,7 +28,7 @@ public class Person
     /// <summary>
     /// Дата рождения физического лица
     /// </summary>
-    public required DateOnly Birthday { get; set; }
+    public DateOnly? Birthday { get; set; }
 
     /// <summary>
     /// Адрес регистрации физического лица (опционально)

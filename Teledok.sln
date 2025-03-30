@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35913.81 d17.13
+VisualStudioVersion = 17.13.35913.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teledok.Domain", "Teledok.Domain\Teledok.Domain.csproj", "{93C6D6A4-B94A-47AF-9AE3-8C4456257E29}"
 EndProject
@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teledok.WebAPI", "Teledok.W
 		{494ADA28-70FA-41FE-A431-759E5CAC101D} = {494ADA28-70FA-41FE-A431-759E5CAC101D}
 		{93C6D6A4-B94A-47AF-9AE3-8C4456257E29} = {93C6D6A4-B94A-47AF-9AE3-8C4456257E29}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teledok.Console", "Teledok.Console\Teledok.Console.csproj", "{4552E949-86CB-4D67-ADEE-6E88B7A366EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,10 @@ Global
 		{28E02A01-A031-441A-A797-E0FE2F548C95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28E02A01-A031-441A-A797-E0FE2F548C95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28E02A01-A031-441A-A797-E0FE2F548C95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4552E949-86CB-4D67-ADEE-6E88B7A366EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4552E949-86CB-4D67-ADEE-6E88B7A366EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4552E949-86CB-4D67-ADEE-6E88B7A366EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4552E949-86CB-4D67-ADEE-6E88B7A366EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

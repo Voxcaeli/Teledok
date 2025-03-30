@@ -1,30 +1,32 @@
-using Teledok.Persistence.Injection;
-
 namespace Teledok.WebAPI;
 
+/// <summary>
+/// Главный класс программы
+/// </summary>
 public class Program
 {
+    /// <summary>
+    /// Главная функция программы
+    /// </summary>
+    /// <param name="args">Список аргументов</param>
     private static void Main(string[] args)
     {
-        var builder = WebApplication.CreateBuilder(args);
+        var host = CreateHostBuilder(args).Build();
+        host.Run();
+    }
 
-        builder.Services.AddControllers();
-        builder.Services.AddOpenApi();
-        builder.Services.AddSwaggerGen();
-        builder.Services.AddPersistence(builder.Configuration);
-
-        var app = builder.Build();
-
-        if (app.Environment.IsDevelopment())
-        {
-            app.MapOpenApi();
-        }
-
-        app.UseSwagger();
-        app.UseSwaggerUI();
-
-        app.UseHttpsRedirection();
-        app.MapControllers();
-        app.Run();
+    /// <summary>
+    /// Создание строителя хоста
+    /// </summary>
+    /// <param name="args">Список агргументов</param>
+    /// <returns>Строитель хоста</returns>
+    private static IHostBuilder CreateHostBuilder(string[] args)
+    {
+        var builder = Host.CreateDefaultBuilder(args)
+                          .ConfigureWebHostDefaults(webHost =>
+                          {
+                              webHost.UseStartup<Startup>();
+                          });
+        return builder;
     }
 }
